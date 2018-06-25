@@ -47,6 +47,7 @@ export class ListPage {
   sortedItems;
   myStorage:Storage;
   sortOption;
+  selectOption = "alle";
 
   constructor(public storage: Storage, public navCtrl: NavController, public navParams: NavParams) {
     //für local storage
@@ -75,6 +76,10 @@ export class ListPage {
   optionChecked(option) { // wenn eine option in der radiobuttonzeile angeclickt wird
     console.log("Option Changed: " + option);
     this.createList();
+  } 
+
+  selectOptionChecked(select) {
+    console.log("Selectoption changed to: " + select);
   }
     
   goToOptions() { // wenn der "options" button gedrückt wird

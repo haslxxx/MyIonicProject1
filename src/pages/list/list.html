@@ -1,14 +1,53 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Übersicht
-        <button ion-button outline item-end (click)="goToOptions()">Options</button>
-    </ion-title>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-1>
+          <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col col-8>
+           <ion-title id="list-title">Übersicht</ion-title>
+        </ion-col>
+        <ion-col col-2>
+          <button ion-button icon-only outline (click)="goToOptions()">
+              <ion-icon name="ios-menu" ></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
     
   </ion-navbar>
-  
+
+  <ion-segment [(ngModel)]="sortOption" color="primary" (ionChange)="optionChecked($event)">
+      <ion-segment-button value="name">
+        Alpha
+      </ion-segment-button>
+      <ion-segment-button value="id">
+        Id
+      </ion-segment-button>
+      <ion-segment-button value="type">
+        Type
+      </ion-segment-button>
+  </ion-segment> 
+
+  <ion-segment [(ngModel)]="selectOption" color="primary" (ionChange)="selectOptionChecked($event)">
+      <ion-segment-button value="alle">
+        Alle
+      </ion-segment-button>
+      <ion-segment-button value="favorites">
+        Favoriten
+      </ion-segment-button>
+      <ion-segment-button value="longago">
+        Lange her
+      </ion-segment-button>
+      <ion-segment-button value="never">
+        Noch Nie
+      </ion-segment-button>
+  </ion-segment> 
+
+  <!-- 
   <ion-list radio-group [(ngModel)]="sortOption" >
       <ion-item>
         <ion-label>Alphabetical</ion-label>
@@ -17,13 +56,14 @@
       <ion-item>
         <ion-label>Id</ion-label>
         <ion-radio value="id" (ionSelect)="optionChecked('id')"></ion-radio>
-      </ion-item>'
+      </ion-item>
       <ion-item>
         <ion-label>Type</ion-label>
         <ion-radio value="type" (ionSelect)="optionChecked('type')"></ion-radio>
       </ion-item>
   </ion-list>
-  <!--
+ 
+
   <ion-item>
       <ion-label color="primary">Sortierung</ion-label>
       <ion-select [(ngModel)]="listoption.sort" multiple="false">
