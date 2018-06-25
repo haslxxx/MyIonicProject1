@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Übersicht
+        <button ion-button outline item-end (click)="goToOptions()">Options</button>
+    </ion-title>
+    
+  </ion-navbar>
+  
+  <ion-list radio-group [(ngModel)]="sortOption" >
+      <ion-item>
+        <ion-label>Alphabetical</ion-label>
+        <ion-radio value="name" (ionSelect)="optionChecked('name')"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Id</ion-label>
+        <ion-radio value="id" (ionSelect)="optionChecked('id')"></ion-radio>
+      </ion-item>'
+      <ion-item>
+        <ion-label>Type</ion-label>
+        <ion-radio value="type" (ionSelect)="optionChecked('type')"></ion-radio>
+      </ion-item>
+  </ion-list>
+  <!--
+  <ion-item>
+      <ion-label color="primary">Sortierung</ion-label>
+      <ion-select [(ngModel)]="listoption.sort" multiple="false">
+        <ion-option>Alphabetical</ion-option>
+        <ion-option>Id</ion-option>
+        <ion-option>Type</ion-option>
+      </ion-select>
+  </ion-item>
+-->
+  
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+  <!--    <ion-icon name="{{item.icon}}" item-left></ion-icon> -->
+      {{item.title}}
+      <div class="item-note" item-right>
+        {{item.note}}
+      </div>
+      <div class="item-id" item-left>
+          {{item.id}}
+      </div>
+    </button>
+  </ion-list>
+</ion-content>

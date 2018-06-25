@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle *ngIf="!selectedItem">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{itemDetails.name}} </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <!--
+  <h6 text-center *ngIf="selectedItem">
+    {{selectedItem.title}} Id={{selectedItem.id}}
+    <ion-icon [name]="selectedItem.icon"></ion-icon>
+  </h6>
+-->
+    <ion-list>
+      <ion-item >
+        <ion-label color="primary" stacked>Bezeichnung</ion-label>
+        <ion-input placeholder="Activity name" [(ngModel)]  ="itemDetails.name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label color="primary">Typ der Aktivität</ion-label>
+          <ion-select [(ngModel)]="itemDetails.type" multiple="false">
+            <ion-option>Sport</ion-option>
+            <ion-option>Spaziergang</ion-option>
+            <ion-option>Wanderung</ion-option>
+            <ion-option>Kultur</ion-option>
+            <ion-option>Event</ion-option>
+            <ion-option>..Andere</ion-option>
+          </ion-select>
+      </ion-item>
+      
+      <ion-item>
+          <ion-label color="primary">Ort</ion-label>
+          <ion-input id="i-location" placeholder="Ort" [(ngModel)]  ="itemDetails.location"></ion-input>
+      </ion-item>
+ 
+
+      <ion-item>
+          <ion-label color="primary">Zeitbedarf [Std]</ion-label>
+          <ion-input id="i-time" type="number" min="1" max="8" placeholder="Zeitbedarf" [(ngModel)]  ="itemDetails.time"></ion-input>
+      </ion-item>
+
+      <ion-item >
+          <ion-label color="primary">Entfernung [km]</ion-label>
+          <ion-input id="i-distance" type="number" min="0" max="300"  placeholder="Entfernung" [(ngModel)]  ="itemDetails.distance"></ion-input>
+      </ion-item>
+     
+      <ion-item>
+          <ion-label color="primary" stacked>Detailbeschreibung</ion-label>
+          <ion-textarea elastic [(ngModel)]="itemDetails.descript">
+            <ion-input id="i-descript" placeholder="Beschreibung" [(ngModel)]="itemDetails.descript"></ion-input>
+          </ion-textarea>
+      </ion-item>
+  
+      <ion-item>
+          <ion-label>NÖ-Card</ion-label>
+          <ion-checkbox [(ngModel)]="itemDetails.noecard"></ion-checkbox>
+      </ion-item>
+
+      <ion-item>
+          <ion-label color="primary" stacked>Weblink</ion-label>
+          <ion-input id="i-weblink" placeholder="Link" [(ngModel)]  ="itemDetails.weblink"></ion-input>
+      </ion-item> 
+
+    </ion-list>
+
+  
+
+</ion-content>
+<ion-footer>
+    <button ion-button (click)="btnNew()">New</button>
+    <button ion-button (click)="btnUpdateSave()">Update/Save</button>
+    <button ion-button (click)="btnDel(selectedItem.id)">Delete</button>
+    <button ion-button (click)="btnAsNew()">Save As New</button>
+
+</ion-footer>

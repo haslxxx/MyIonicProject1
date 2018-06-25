@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Freizeitplaner</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <h3>Hallo beim Freizeitplaner</h3>
+
+  <p>
+    <a>Hier kannst du dir Aktivitäten merken, die du gerne einmal ausführen möchtest. </a>
+  </p>
+ 
+  <p>
+    <b>Wenn's dann soweit ist mal was zu unternehmen, kannst du Termine mit Freunden planen. </b>
+  </p>
+
+  <p>
+     Wenn du unentschlossen bist hilft dir die Vorschlagsfunktion.
+  </p>
+  <p>
+    <b>Viel Spass !</b>
+  </p><!--
+
+  <p>
+    <button ion-button color="primary" menuToggle>Menü</button>
+  </p>
+ -->
+  <p>
+    <button ion-button (click)="goToList()">Aktivitäten Bearbeiten</button>
+  </p>
+  <p>
+    <button ion-button (click)="goToVorschlag()">Vorschlag erstellen</button>
+  </p>
+  
+
+</ion-content>
